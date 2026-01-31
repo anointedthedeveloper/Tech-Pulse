@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPulse Reviews - Expert Tech Analysis & Reviews</title>
+    <meta name="description" content="In-depth tech reviews, analysis, and insights on the latest gadgets, software, and technology trends.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0A0E27;
+            --accent: #00D9FF;
+            --accent-dark: #0099CC;
+            --text: #E8E8E8;
+            --text-muted: #A0A0A0;
+            --bg-card: #151933;
+            --border: #2A2E4A;
+            --error: #FF4757;
+            --success: #00D9FF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Background */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.6s ease;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--accent), #00FFB3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0;
+            text-align: center;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, #FFFFFF, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        /* AdSense Placeholder */
+        .adsense-placeholder {
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(0, 255, 179, 0.1));
+            border: 2px dashed var(--accent);
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            margin: 3rem 0;
+            animation: pulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        
+        .adsense-placeholder p {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+        
+        /* Content Sections */
+        section {
+            padding: 4rem 0;
+            animation: fadeInUp 0.8s ease both;
+        }
+        
+        section:nth-child(even) {
+            animation-delay: 0.1s;
+        }
+        
+        section:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+        
+        h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 217, 255, 0.2);
+        }
+        
+        .card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .card h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .card p {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.1);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        button[type="submit"] {
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            color: var(--primary);
+            border: none;
+            padding: 1rem 3rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            font-family: 'Work Sans', sans-serif;
+        }
+        
+        button[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 217, 255, 0.3);
+        }
+        
+        /* Legal Pages */
+        .legal-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .legal-content h3 {
+            color: var(--accent);
+            margin: 2rem 0 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .legal-content p, .legal-content li {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        .legal-content ul {
+            margin-left: 2rem;
+        }
+        
+        .legal-content a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        
+        .legal-content a:hover {
+            border-bottom-color: var(--accent);
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(10, 14, 39, 0.95);
+            border-top: 1px solid var(--border);
+            padding: 3rem 0 2rem;
+            margin-top: 6rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            font-family: 'Bebas Neue', sans-serif;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        /* Hidden Pages */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(10, 14, 39, 0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 3rem 0;
+                transition: left 0.3s ease;
+                border-top: 1px solid var(--border);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .legal-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+        
+        /* Form Validation */
+        .error-message {
+            color: var(--error);
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: var(--error);
+        }
+        
+        .form-group.error .error-message {
+            display: block;
+        }
+        
+        .success-message {
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid var(--success);
+            color: var(--success);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            display: none;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">TECHPULSE</div>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('categories')">Categories</a></li>
+                    <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                    <li><a href="#" onclick="showPage('legal')">Legal</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="container">
+                <h1>TECH INSIGHTS DECODED</h1>
+                <p>Your trusted source for in-depth reviews, analysis, and breaking tech news</p>
+            </div>
+        </section>
+
+        <!-- AdSense Placeholder - Header -->
+        <div class="container">
+            <div class="adsense-placeholder">
+                <p>⚡ GOOGLE ADSENSE PLACEMENT - HEADER ⚡</p>
+            </div>
+        </div>
+
+        <section>
+            <div class="container">
+                <h2>Latest Reviews</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Smartphones</h3>
+                        <p>Comprehensive reviews of the latest mobile devices, from flagship models to budget-friendly options. We test performance, cameras, battery life, and real-world usability.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Laptops & PCs</h3>
+                        <p>Expert analysis of computing devices for work, gaming, and creative professionals. Detailed benchmarks and practical testing scenarios.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Software & Apps</h3>
+                        <p>In-depth software reviews covering productivity tools, creative applications, and emerging platforms that shape how we work and play.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AdSense Placeholder - Mid Content -->
+        <div class="container">
+            <div class="adsense-placeholder">
+                <p>⚡ GOOGLE ADSENSE PLACEMENT - CONTENT ⚡</p>
+            </div>
+        </div>
+
+        <section>
+            <div class="container">
+                <h2>Why TechPulse?</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Expert Analysis</h3>
+                        <p>Our team of tech professionals brings years of industry experience to every review and article.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Unbiased Reviews</h3>
+                        <p>We maintain editorial independence and provide honest, transparent assessments of every product we test.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Community First</h3>
+                        <p>We listen to our readers and create content that answers your real questions and concerns.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CATEGORIES PAGE -->
+    <div id="categories" class="page">
+        <section>
+            <div class="container">
+                <h2>Browse Categories</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Mobile Devices</h3>
+                        <p>Smartphones, tablets, wearables, and mobile accessories reviewed in detail.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Computing</h3>
+                        <p>Laptops, desktops, components, and peripherals for every use case.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Audio & Video</h3>
+                        <p>Headphones, speakers, cameras, and entertainment devices.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Smart Home</h3>
+                        <p>IoT devices, home automation, and connected living solutions.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Gaming</h3>
+                        <p>Consoles, PC gaming hardware, accessories, and game reviews.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Software</h3>
+                        <p>Apps, operating systems, productivity tools, and digital services.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AdSense Placeholder -->
+        <div class="container">
+            <div class="adsense-placeholder">
+                <p>⚡ GOOGLE ADSENSE PLACEMENT - CATEGORIES ⚡</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT US PAGE -->
+    <div id="about" class="page">
+        <section>
+            <div class="container">
+                <h2>About TechPulse</h2>
+                <div class="legal-content">
+                    <h3>Our Mission</h3>
+                    <p>TechPulse was founded with a simple mission: to provide honest, comprehensive, and accessible tech reviews that help people make informed purchasing decisions. In a world flooded with marketing hype and sponsored content, we believe consumers deserve transparent, unbiased information.</p>
+                    
+                    <h3>Who We Are</h3>
+                    <p>We are a team of passionate tech enthusiasts, engineers, and journalists who have spent years working in and covering the technology industry. Our diverse backgrounds give us unique perspectives on how technology impacts different aspects of life and work.</p>
+                    
+                    <h3>What We Do</h3>
+                    <p>Every product we review undergoes rigorous testing in real-world scenarios. We don't just look at spec sheets – we use devices the way you would, testing battery life during actual workdays, camera quality in various lighting conditions, and performance under stress.</p>
+                    
+                    <h3>Our Values</h3>
+                    <ul>
+                        <li><strong>Independence:</strong> We purchase most products we review and never let advertising relationships influence our editorial content.</li>
+                        <li><strong>Transparency:</strong> We clearly disclose our testing methodologies and any potential conflicts of interest.</li>
+                        <li><strong>Expertise:</strong> Our reviewers are trained professionals with deep knowledge in their respective tech domains.</li>
+                        <li><strong>Community:</strong> We value reader feedback and continuously improve based on what our audience needs.</li>
+                    </ul>
+                    
+                    <h3>Editorial Standards</h3>
+                    <p>Our editorial team operates independently from our advertising operations. Reviews are based solely on product merit, testing results, and real-world performance. We update our reviews when products receive significant updates or when new information becomes available.</p>
+                    
+                    <h3>Contact Our Team</h3>
+                    <p>Have questions about our review process or want to suggest a product for review? Visit our <a href="#" onclick="showPage('contact')">Contact page</a> to get in touch.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <section>
+            <div class="container">
+                <h2>Contact Us</h2>
+                <div class="legal-content">
+                    <div class="success-message" id="successMessage">
+                        Thank you for your message! We'll get back to you within 24-48 hours.
+                    </div>
+                    
+                    <p>Have a question, suggestion, or feedback? We'd love to hear from you. Fill out the form below and our team will respond as soon as possible.</p>
+                    
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                            <span class="error-message">Please enter your name</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message">Please enter a valid email address</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required>
+                            <span class="error-message">Please enter a subject</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                            <span class="error-message">Please enter your message</span>
+                        </div>
+                        
+                        <button type="submit">Send Message</button>
+                    </form>
+                    
+                    <h3>Other Ways to Reach Us</h3>
+                    <p><strong>Email:</strong> contact@techpulse.com<br>
+                    <strong>Business Inquiries:</strong> business@techpulse.com<br>
+                    <strong>Press:</strong> press@techpulse.com</p>
+                    
+                    <p><em>We typically respond to all inquiries within 24-48 hours during business days.</em></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- LEGAL PAGE -->
+    <div id="legal" class="page">
+        <section>
+            <div class="container">
+                <h2>Legal Information</h2>
+                <div class="legal-content">
+                    <p>Please review the following legal documents that govern your use of TechPulse:</p>
+                    <ul>
+                        <li><a href="#" onclick="showPage('privacy')">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showPage('terms')">Terms and Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PRIVACY POLICY PAGE -->
+    <div id="privacy" class="page">
+        <section>
+            <div class="container">
+                <h2>Privacy Policy</h2>
+                <div class="legal-content">
+                    <p><em>Last Updated: January 2026</em></p>
+                    
+                    <h3>Introduction</h3>
+                    <p>TechPulse ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
+                    
+                    <h3>Information We Collect</h3>
+                    <p>We collect information that you provide directly to us, such as when you:</p>
+                    <ul>
+                        <li>Fill out contact forms</li>
+                        <li>Subscribe to our newsletter</li>
+                        <li>Leave comments on articles</li>
+                        <li>Participate in surveys or promotions</li>
+                    </ul>
+                    
+                    <h3>Automatically Collected Information</h3>
+                    <p>When you visit our website, we automatically collect certain information about your device, including:</p>
+                    <ul>
+                        <li>IP address</li>
+                        <li>Browser type and version</li>
+                        <li>Operating system</li>
+                        <li>Pages visited and time spent on pages</li>
+                        <li>Referring website addresses</li>
+                    </ul>
+                    
+                    <h3>Cookies and Tracking Technologies</h3>
+                    <p>We use cookies and similar tracking technologies to improve your browsing experience, analyze site traffic, and understand where our visitors are coming from.</p>
+                    
+                    <h3>Google AdSense and Cookies</h3>
+                    <p><strong>This website uses Google AdSense to display advertisements.</strong> Google AdSense uses cookies to serve ads based on your prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to our site and/or other sites on the Internet.</p>
+                    
+                    <p><strong>DART Cookies:</strong> Google uses the DoubleClick DART cookie to serve ads across the Google Display Network. This cookie enables Google to serve ads to users based on their visit to our website and other sites on the Internet. The DART cookie collects information such as:</p>
+                    <ul>
+                        <li>Which ads are shown to users</li>
+                        <li>Which ads users click on</li>
+                        <li>User interactions with advertisements</li>
+                        <li>Browsing patterns across different websites</li>
+                    </ul>
+                    
+                    <p><strong>Opting Out:</strong> You may opt out of the use of the DART cookie by visiting the Google Ad and Content Network privacy policy at <a href="https://www.google.com/policies/technologies/ads/" target="_blank">https://www.google.com/policies/technologies/ads/</a>. You can also opt out of personalized advertising by visiting <a href="https://www.aboutads.info/choices/" target="_blank">www.aboutads.info</a>.</p>
+                    
+                    <h3>Third-Party Advertising Partners</h3>
+                    <p>We allow third-party companies, including Google, to serve ads and collect information when you visit our website. These companies may use information (not including your name, address, email address, or telephone number) about your visits to this and other websites in order to provide advertisements about goods and services of interest to you.</p>
+                    
+                    <h3>How We Use Your Information</h3>
+                    <p>We use the information we collect to:</p>
+                    <ul>
+                        <li>Provide, maintain, and improve our services</li>
+                        <li>Respond to your inquiries and requests</li>
+                        <li>Send you newsletters and promotional materials (with your consent)</li>
+                        <li>Analyze usage patterns and optimize user experience</li>
+                        <li>Prevent fraud and enhance security</li>
+                        <li>Comply with legal obligations</li>
+                    </ul>
+                    
+                    <h3>Information Sharing and Disclosure</h3>
+                    <p>We do not sell your personal information. We may share your information with:</p>
+                    <ul>
+                        <li>Service providers who assist in operating our website</li>
+                        <li>Analytics providers (e.g., Google Analytics)</li>
+                        <li>Advertising partners (e.g., Google AdSense)</li>
+                        <li>Law enforcement when required by law</li>
+                    </ul>
+                    
+                    <h3>Data Security</h3>
+                    <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+                    
+                    <h3>Your Rights</h3>
+                    <p>Depending on your location, you may have certain rights regarding your personal information, including:</p>
+                    <ul>
+                        <li>Access to your personal data</li>
+                        <li>Correction of inaccurate data</li>
+                        <li>Deletion of your data</li>
+                        <li>Objection to processing</li>
+                        <li>Data portability</li>
+                    </ul>
+                    
+                    <h3>Children's Privacy</h3>
+                    <p>Our website is not directed to children under 13 years of age. We do not knowingly collect personal information from children under 13.</p>
+                    
+                    <h3>International Data Transfers</h3>
+                    <p>Your information may be transferred to and processed in countries other than your country of residence. We ensure appropriate safeguards are in place for such transfers.</p>
+                    
+                    <h3>Changes to This Privacy Policy</h3>
+                    <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+                    
+                    <h3>Contact Us</h3>
+                    <p>If you have questions about this Privacy Policy, please contact us at:</p>
+                    <p>Email: privacy@techpulse.com<br>
+                    Address: [Your Business Address]</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- TERMS AND CONDITIONS PAGE -->
+    <div id="terms" class="page">
+        <section>
+            <div class="container">
+                <h2>Terms and Conditions</h2>
+                <div class="legal-content">
+                    <p><em>Last Updated: January 2026</em></p>
+                    
+                    <h3>Agreement to Terms</h3>
+                    <p>By accessing and using TechPulse ("the Website"), you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to these Terms and Conditions, please do not use this Website.</p>
+                    
+                    <h3>Use License</h3>
+                    <p>Permission is granted to temporarily download one copy of the materials (information or software) on TechPulse's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
+                    <ul>
+                        <li>Modify or copy the materials</li>
+                        <li>Use the materials for any commercial purpose or for any public display</li>
+                        <li>Attempt to decompile or reverse engineer any software contained on the Website</li>
+                        <li>Remove any copyright or other proprietary notations from the materials</li>
+                        <li>Transfer the materials to another person or "mirror" the materials on any other server</li>
+                    </ul>
+                    
+                    <h3>Disclaimer</h3>
+                    <p>The materials on TechPulse's website are provided on an 'as is' basis. TechPulse makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+                    
+                    <h3>Product Reviews and Opinions</h3>
+                    <p>All product reviews, ratings, and opinions expressed on this Website are those of TechPulse and its contributors. While we strive for accuracy and objectivity, reviews represent subjective opinions based on our testing methodology and experience. Your experience with products may differ.</p>
+                    
+                    <h3>Affiliate Relationships and Advertising</h3>
+                    <p>TechPulse may participate in affiliate marketing programs and display advertisements, including Google AdSense. This means we may earn commissions on qualifying purchases made through links on our site. Our editorial content remains independent and is not influenced by advertising relationships.</p>
+                    
+                    <h3>User Content</h3>
+                    <p>Users may post comments and other content to our Website. By posting content, you grant TechPulse a non-exclusive, royalty-free, perpetual license to use, reproduce, modify, and display such content. You represent that you own or have the necessary rights to post such content.</p>
+                    
+                    <h3>Prohibited Activities</h3>
+                    <p>You may not use the Website to:</p>
+                    <ul>
+                        <li>Violate any applicable laws or regulations</li>
+                        <li>Infringe on intellectual property rights</li>
+                        <li>Transmit viruses or malicious code</li>
+                        <li>Engage in spamming or phishing</li>
+                        <li>Harass, abuse, or harm other users</li>
+                        <li>Attempt to gain unauthorized access to our systems</li>
+                    </ul>
+                    
+                    <h3>Intellectual Property Rights</h3>
+                    <p>All content on this Website, including text, graphics, logos, images, and software, is the property of TechPulse or its content suppliers and is protected by international copyright laws. Unauthorized use of any materials may violate copyright, trademark, and other laws.</p>
+                    
+                    <h3>Links to Third-Party Websites</h3>
+                    <p>Our Website may contain links to third-party websites. These links are provided for your convenience only. TechPulse has no control over the content of linked sites and is not responsible for any damages arising from your use of such sites.</p>
+                    
+                    <h3>Limitation of Liability</h3>
+                    <p>In no event shall TechPulse or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on TechPulse's website.</p>
+                    
+                    <h3>Accuracy of Materials</h3>
+                    <p>The materials appearing on TechPulse's website could include technical, typographical, or photographic errors. TechPulse does not warrant that any of the materials on its website are accurate, complete, or current. TechPulse may make changes to the materials at any time without notice.</p>
+                    
+                    <h3>Modifications</h3>
+                    <p>TechPulse may revise these Terms and Conditions at any time without notice. By using this Website, you agree to be bound by the current version of these Terms and Conditions.</p>
+                    
+                    <h3>Governing Law</h3>
+                    <p>These terms and conditions are governed by and construed in accordance with the laws of [Your Jurisdiction], and you irrevocably submit to the exclusive jurisdiction of the courts in that location.</p>
+                    
+                    <h3>Contact Information</h3>
+                    <p>If you have any questions about these Terms and Conditions, please contact us at:</p>
+                    <p>Email: legal@techpulse.com<br>
+                    Address: [Your Business Address]</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>TechPulse</h4>
+                    <p style="color: var(--text-muted);">Your trusted source for honest tech reviews and insights.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('home')">Home</a></li>
+                        <li><a href="#" onclick="showPage('categories')">Categories</a></li>
+                        <li><a href="#" onclick="showPage('about')">About Us</a></li>
+                        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('privacy')">Privacy Policy</a></li>
+                        <li><a href="#" onclick="showPage('terms')">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TechPulse. All rights reserved. | Designed for tech enthusiasts worldwide</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Close mobile menu if open
+            document.getElementById('navLinks').classList.remove('active');
+        }
+        
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+        
+        // Form Validation and Submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form elements
+            const form = document.getElementById('contactForm');
+            const formGroups = form.querySelectorAll('.form-group');
+            let isValid = true;
+            
+            // Clear previous errors
+            formGroups.forEach(group => group.classList.remove('error'));
+            
+            // Validate each field
+            formGroups.forEach(group => {
+                const input = group.querySelector('input, textarea');
+                if (!input.value.trim()) {
+                    group.classList.add('error');
+                    isValid = false;
+                }
+                
+                // Additional email validation
+                if (input.type === 'email' && input.value.trim()) {
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(input.value)) {
+                        group.classList.add('error');
+                        isValid = false;
+                    }
+                }
+            });
+            
+            // If valid, show success message
+            if (isValid) {
+                document.getElementById('successMessage').classList.add('show');
+                form.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    document.getElementById('successMessage').classList.remove('show');
+                }, 5000);
+            }
+            
+            return false;
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (nav.classList.contains('active') && 
+                !nav.contains(event.target) && 
+                !menuBtn.contains(event.target)) {
+                nav.classList.remove('active');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
